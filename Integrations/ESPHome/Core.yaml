@@ -1,6 +1,6 @@
 substitutions:
   name: apollo-air-1
-  version: "24.10.11.1"
+  version: "24.10.11.1a"
   device_description: ${name} made by Apollo Automation - version ${version}.
 
 esp32:
@@ -174,7 +174,7 @@ sensor:
       accuracy_decimals: 1
     temperature:
       name: "SEN55 Temperature"
-      accuracy_decimals: 1
+      accuracy_decimals: 2
       filters:
         - lambda: return x - id(sen55_temperature_offset).state;
     humidity:
@@ -196,7 +196,7 @@ sensor:
     nox:
       name: "SEN55 NOX"
       id: sen55_nox
-    acceleration_mode: low
+    acceleration_mode: high
     store_baseline: true
     address: 0x69
     update_interval: 10s
@@ -254,7 +254,7 @@ sensor:
       name: Methane
     ammonia:
       name: Ammonia
-    update_interval: 10s
+    update_interval: 100s
 
 light:
   - platform: esp32_rmt_led_strip
